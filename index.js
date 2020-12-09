@@ -12,7 +12,7 @@ app.post('/events', async (req, res) => {
     // if content has word orange (simulation of bad comment) reject it, otherwise approve
     const status = data.content.includes('orange') ? 'rejected' : 'approved';
 
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
       type: 'CommentModerated',
       data: {
         id: data.id,
